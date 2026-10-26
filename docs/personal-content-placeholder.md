@@ -1,0 +1,1 @@
+Add an approved personal image at `public/portrait.jpg`. The public GitHub avatar was checked and is an illustration, not a photo of Kenneth, so it is not used as the portrait.
