@@ -4,20 +4,21 @@ import SectionHeader from "./SectionHeader";
 
 export default function Skills() {
   return (
-    <section id="expertise" className="section-shell" aria-labelledby="expertise-title">
+    <section id="stack" className="section-shell" aria-labelledby="expertise-title">
       <div className="page-shell">
-        <SectionHeader id="expertise-title" number="02" title="Expertise" aside="Across the system">
-          Organized by what I build, with project evidence where it is available. Learning and practice are labeled separately.
+        <SectionHeader id="expertise-title" number="02" title="Stack" aside="Tools used in projects">
+          A short, evidence-led list. Each group links to work where the tools appear.
         </SectionHeader>
         <div className="expertise-grid">
-          {skillGroups.map((group) => {
+          {skillGroups.slice(0, 3).map((group) => {
             const evidence = group.evidence.map((id) => featuredProjects.find((project) => project.id === id)).filter((project): project is (typeof featuredProjects)[number] => Boolean(project));
             return (
               <article className="expertise-row" key={group.id}>
                 <div><h3 className="expertise-title">{group.title}</h3><p className="expertise-note">{group.note}</p></div>
                 <ul className="expertise-skills">{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
                 <div className="expertise-evidence">
-                  {evidence.length ? <><span className="evidence-label">Project evidence</span>{evidence.map((project) => <Link key={project.id} href={"/work/" + project.id}>{project.title}</Link>)}</> : <span className="evidence-label">Learning & practice</span>}
+                  <span className="evidence-label">Used in</span>
+                  {evidence.map((project) => <Link key={project.id} href={`/work/${project.id}`}>{project.title}</Link>)}
                 </div>
               </article>
             );

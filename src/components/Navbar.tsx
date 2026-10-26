@@ -6,9 +6,8 @@ import { FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
 import { useTheme } from "./ThemeProvider";
 
 const links = [
-  { id: "home", label: "Home" }, { id: "work", label: "Work" },
-  { id: "expertise", label: "Expertise" }, { id: "about", label: "About" },
-  { id: "how-i-build", label: "Process" }, { id: "contact", label: "Contact" },
+  { id: "work", label: "Work" }, { id: "explore", label: "Console" }, { id: "stack", label: "Stack" },
+  { id: "about", label: "About" }, { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -60,13 +59,15 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <div className="nav-frame page-shell">
-        <a className="wordmark" href={hrefFor("home")} onClick={closeMenu}><span className="wordmark-mark">KB</span><span>Kenneth Bitun</span></a>
+        <a className="wordmark" href={hrefFor("home")} onClick={closeMenu}>
+          <span className="wordmark-mark">KB</span><span>Kenneth Bitun</span>
+        </a>
         <div className="nav-right">
           <nav className="primary-nav" aria-label="Primary navigation">
             {links.map((link) => <a key={link.id} className="nav-link" href={hrefFor(link.id)} aria-current={activeSection === link.id ? "location" : undefined}>{link.label}</a>)}
           </nav>
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={"Switch to " + (theme === "light" ? "dark" : "light") + " theme"}>
-            {theme === "light" ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}<span className="theme-label">{theme === "light" ? "Dark" : "Light"}</span>
+            {theme === "light" ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}
           </button>
           <button ref={menuButton} className="menu-toggle" type="button" onClick={() => setMobileOpen((open) => !open)} aria-expanded={mobileOpen} aria-controls="mobile-navigation" aria-label={mobileOpen ? "Close navigation" : "Open navigation"}>
             {mobileOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}

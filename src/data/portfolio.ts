@@ -38,8 +38,8 @@ export const featuredProjects: FeaturedProject[] = [
     results: "The source contains the feature pipeline, model implementations, forecast writer, API, and application interface. No model-accuracy, traffic, or production-reliability claims are made here.",
     nextSteps: "Align the forecast-horizon contract between the Python writer and Edge API, and verify historical publication timing before describing retrospective evaluation as point-in-time backtesting.",
     techStack: ["Python", "PyTorch", "LSTM", "LightGBM", "Next.js", "TypeScript", "Supabase"],
-    accent: "#245BEE", status: "Thesis project · 2025–present",
-    liveUrl: "https://foodcastt.vercel.app/", githubUrl: null,
+    accent: "#245BEE", status: "Thesis project",
+    liveUrl: "https://foodcastt.vercel.app/", githubUrl: "https://github.com/Kendot1/THESIS",
   },
   {
     id: "supremo-barber", index: "02", title: "Supremo Barber", category: "Full-stack product",
@@ -52,29 +52,15 @@ export const featuredProjects: FeaturedProject[] = [
     technologyRationale: "React and Vite support the role-based client. A shared TypeScript rules module keeps browser and server appointment rules aligned; Hono organizes the Edge HTTP routes around Supabase Auth and PostgreSQL.",
     results: "The repository implements booking, scheduling, role workspaces, rescheduling checks, and payment-proof handling. Individual responsibilities and business outcomes are not sufficiently documented to claim here.",
     nextSteps: "Audit deployed database policies and add database-level concurrency protection. The current in-memory booking lock covers one Edge isolate, not every concurrent instance.",
-    techStack: ["React", "TypeScript", "Vite", "Hono", "Supabase", "PostgreSQL"], accent: "#C35C3C", status: null, liveUrl: null, githubUrl: null,
-  },
-  {
-    id: "daddy-bons-kitchen", index: "03", title: "Daddy Bons Kitchen", category: "Service experience",
-    summary: "A food ordering and scheduled reservation platform.",
-    context: "The project notes describe one customer experience for placing food orders and scheduling reservations.",
-    approach: "Implementation details, technology choices, individual contribution, and outcomes are not documented in the current notes.",
-    techStack: [], accent: "#8B6A19", status: null, liveUrl: null, githubUrl: null,
-  },
-  {
-    id: "lucent", index: "04", title: "Lucent", category: "Data / workflow",
-    summary: "A trading journal concept focused on organizing trades, market context, and review.",
-    context: "Available notes describe trade organization, market context, and analytics as the product focus.",
-    approach: "Architecture, technology choices, individual contribution, and outcomes are not documented in the current notes.",
-    techStack: [], accent: "#5A55A5", status: null, liveUrl: null, githubUrl: null,
+    techStack: ["React", "TypeScript", "Vite", "Hono", "Supabase", "PostgreSQL"], accent: "#C35C3C", status: "Source available · deployment unverified", liveUrl: null, githubUrl: "https://github.com/Kendot1/Supremo_Barbers",
   },
 ];
 
 export const skillGroups = [
-  { id: "interfaces", number: "01", title: "Interfaces and product UI", note: "Structure, interaction, and responsive behavior", skills: ["React", "Next.js", "TypeScript", "Responsive interfaces", "Interaction design", "Accessibility"], evidence: ["foodcast"] },
-  { id: "backend", number: "02", title: "Backend and data", note: "Application logic and connected data", skills: ["Supabase", "PostgreSQL", "REST APIs", "Data modeling", "Server-side development"], evidence: ["foodcast", "supremo-barber"] },
-  { id: "machine-learning", number: "03", title: "AI and machine learning", note: "Forecasting workflows and model integration", skills: ["Python", "LSTM", "LightGBM", "Time-series forecasting", "Model evaluation"], evidence: ["foodcast"] },
-  { id: "engineering", number: "04", title: "Engineering practice", note: "The work around a reliable product", skills: ["Git and GitHub", "Testing", "Debugging", "Documentation", "Performance", "System design"], evidence: [] },
+  { id: "interfaces", number: "01", title: "Interfaces and product UI", note: "Application interfaces demonstrated in project code", skills: ["React", "Next.js", "TypeScript", "Role-based interfaces", "Server-fetched views", "SWR data refresh"], evidence: ["foodcast", "supremo-barber"] },
+  { id: "backend", number: "02", title: "Backend and data", note: "Application logic and connected data", skills: ["Supabase", "PostgreSQL", "Hono", "HTTP APIs", "Authentication checks", "Booking validation"], evidence: ["foodcast", "supremo-barber"] },
+  { id: "machine-learning", number: "03", title: "AI and machine learning", note: "Forecasting workflows and model integration", skills: ["Python", "PyTorch", "LSTM", "LightGBM", "Time-series features", "Validation-tuned ensembles"], evidence: ["foodcast"] },
+  { id: "engineering", number: "04", title: "Engineering practice", note: "Implementation practices visible in the repositories", skills: ["Git and GitHub", "Rule tests", "Shared rule modules", "Architecture documentation", "Typed API clients"], evidence: ["foodcast", "supremo-barber"] },
 ];
 
 export const processSteps = [
