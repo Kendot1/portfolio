@@ -10,7 +10,7 @@ export default function Skills() {
           A short, evidence-led list. Each group links to work where the tools appear.
         </SectionHeader>
         <div className="expertise-grid">
-          {skillGroups.slice(0, 3).map((group) => {
+          {skillGroups.map((group) => {
             const evidence = group.evidence.map((id) => featuredProjects.find((project) => project.id === id)).filter((project): project is (typeof featuredProjects)[number] => Boolean(project));
             return (
               <article className="expertise-row" key={group.id}>

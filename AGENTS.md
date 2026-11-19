@@ -1,683 +1,131 @@
-# GOAL: Build a Distinctive, Minimalist Full-Stack & AI Engineering Portfolio
+# Portfolio Agent Instructions
 
-## 1. Role and Mission
+Place these instructions at the root of the actual portfolio repository as `AGENTS.md`. Keep them separate from any unrelated workspace-level `AGENTS.md` files.
 
-Act as an award-winning UI/UX designer, creative director, senior full-stack engineer, AI engineering specialist, and personal branding strategist.
+## Mission
 
-Your mission is to design and implement a premium personal portfolio that represents me as a versatile software engineer capable of building complete, production-oriented applications.
+Redesign and implement my existing personal portfolio in the active portfolio repository. Make it feel unmistakably personal, easy to understand, and worth exploring. The finished site should show what I build across full-stack software and AI engineering, give visitors credible proof, and make it easy to connect.
 
-**Design reference:** https://bryllim.com/
+This is an implementation brief, not a request to stop at a proposal, design document, or mockup. Inspect the actual portfolio first, then improve it in place while preserving useful content and working behavior.
 
-Use Bryl's page as the structural and visual reference: compact top navigation; a concise identity-led intro with professional links; clear, numbered portfolio sections; and an easy-to-find contact area. Apply this familiar page flow to Work, Expertise, About, and Contact, keeping section content grounded in verified information.
+## What the visitor should understand
 
-Match its minimalist editorial feel through confident typography, generous whitespace, clear hierarchy, restrained colors, and a calm, direct rhythm. Create a distinct version for this portfolio with original project visuals, composition details, and an engineering-inspired visual motif. Do not reuse Bryl's exact copy, branding, assets, or distinctive interactive features.
+Within a few seconds, a visitor should be able to answer:
 
-### Core Design Philosophy
+1. Who is this engineer?
+2. What kinds of useful systems can they build?
+3. Which real projects prove it, and what technologies were used?
+4. What education and certifications are verified?
+5. How can I explore, play, comment, or get in touch?
 
-**"Minimal in appearance. Comprehensive in capability. Distinctive in identity."**
+The professional focus is end-to-end software engineering: frontend, backend and APIs, data and databases, AI and machine learning, system design, and deployment where supported by real work. Present a connected engineering practice, not a list of buzzwords or a claim to expertise in everything.
 
-### UI/UX Redesign Priorities
+## Work from verified identity and project evidence
 
-- Redesign the complete portfolio experience, including the homepage, navigation, project details, and responsive states. Implement the changes in the active portfolio repository; editing this brief, providing a plan or mockup, or saving a separate copy alone does not complete a redesign. If the active repository is not writable, report that access blocker before creating a copy.
-- Follow Bryl's broad layout and section rhythm while adapting it to Work, Expertise, About, and Contact. Make the result feel related at a glance, with original project presentation and visual identity.
-- Make the design feel finished and intentional: strong hierarchy, precise spacing, readable typography, balanced section lengths, consistent interaction states, and careful mobile layouts.
-- Work decisively: inspect the existing app and verified content, reuse useful components and data, then implement the highest-impact improvements without prolonged planning or unnecessary rewrites.
-- Make page loads and interactions as fast as practical. Keep assets, fonts, client-side code, and dependencies lean; optimize media; avoid heavy animation and unnecessary libraries.
-- Speed must not come at the cost of accessibility, responsive quality, content accuracy, or the repository's documented checks.
+Before changing the design, inspect the active repository, its existing portfolio, applicable `AGENTS.md` files, README, project data, and available personal materials. Verify technologies and claims against real projects and code where possible. Check that links work before publishing them.
 
-The portfolio must communicate:
+- Preserve accurate personal writing and useful existing features; improve them instead of replacing them for convenience.
+- Treat the portfolio draft pasted with this request as rejected content, not a source of truth. Do not reuse its wording or assume its identity claims, project names, roles, dates, technology lists, education, certifications, GitHub history, contact routes, or metrics are correct. Verify public details independently from the actual portfolio, project repositories, GitHub profile, and personal materials. A project named in that draft may appear only if independently confirmed.
+- Never invent my name, biography, education, employers, clients, project role, results, metrics, certifications, production use, or social links.
+- Do not treat a dependency in `package.json` as proof that I used or mastered that technology.
+- Make the status of work clear: prototype, research, in progress, deployed, or otherwise supported by evidence.
+- If an important fact is missing, leave it out of public copy and ask one concise, consolidated set of questions for only the details that materially affect the result. Continue with the parts that can be completed accurately.
+- Keep any incomplete content in an obvious, non-public data placeholder rather than publishing bracketed filler or fictional copy.
 
-- Full-stack software engineering
-- Artificial intelligence and machine learning engineering
-- Backend systems and API development
-- Database architecture and management
-- Cloud infrastructure and deployment
-- System design and software architecture
-- Automation and intelligent workflows
-- Frontend development and UI/UX understanding
-- End-to-end product development
-- Engineering problem-solving and technical decision-making
+## Art direction
 
-The visitor should immediately understand that I can work across the entire software development lifecycle.
+Create a visual identity from the real person, projects, and engineering interests found in the repository. Before coding, inspect the old portfolio and name the specific choices that make it feel generic, unclear, or unlike me; identify useful content or behavior worth keeping. Start with a short design thesis grounded in verified material, then make deliberate choices for color, type, spacing, composition, project imagery, and interaction. The site should feel authored, not assembled from a portfolio starter kit.
 
-Do not portray me as exclusively a frontend developer, UI designer, or AI enthusiast.
+Find one memorable identity anchor in the evidence: a project artifact, a way I explain engineering, a recurring visual idea in my work, or a personal detail I have actually shared. Turn it into one restrained visual signature and one useful interactive moment. Do not invent a personal story or force a metaphor that the work does not support. Compose the page around the content that matters instead of filling a standard portfolio template with different labels.
 
-Position me as an engineer who understands how complete systems are planned, built, integrated, tested, deployed, and improved.
+The desired balance is minimal and focused, with enough personality to be memorable. Use confident typography, clear hierarchy, generous but purposeful whitespace, and a restrained palette. A technical or terminal-inspired detail can be part of the identity, but it must support the content rather than take over the whole page.
 
-**Important:** Communicate broad capabilities without inventing professional experience, production deployments, clients, certifications, or achievements.
+Treat the current Bryl Lim portfolio at https://bryllim.com/ as the lead design reference. Inspect the live page at desktop and mobile sizes before implementation. Follow its recognizable browsing rhythm: compact grouped navigation, a brief identity-first introduction with professional links, clearly separated sections with a light numbered cadence, a prominent project showcase, concise experience/stack context where verified, playful utility interactions, and contact that stays easy to reach. Match the reference's clarity, compactness, and editorial pacing closely enough that the design direction is apparent at a glance.
 
----
+Translate that structure into my own identity and content. Do not copy Bryl's name, writing, exact page composition, branding, assets, metrics, keyboard shortcuts, chat, typing test, or other distinctive interaction. Keep only the high-level visual and UX principles; create original project visuals, copy, console behavior, and personal details. Do not add reference sections that have no evidence in my actual work.
 
-## 2. Visual Identity and Art Direction
+## Design skill workflow
 
-Create a distinctive design that is memorable without becoming visually complicated.
+Use the GitHub skill [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) as the primary UX and design-system aid. It supports Codex and provides searchable design guidance for styles, color, typography, UX, accessibility, and framework-specific implementation. If it is not available to the active agent, add it to this portfolio repository only with `npx skills add nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max`, then read its `SKILL.md` before using its helper scripts. Do not install it globally.
 
-### Visual Characteristics
+Use Anthropic's `frontend-design` skill too when the active agent already provides it. Use UI/UX Pro Max to inform hierarchy, interaction, and a coherent design system; use frontend-design for subject-specific visual choices and a critical pass against generic AI patterns. The user's explicit reference and the verified portfolio content outrank generic skill recommendations. Do not copy a preset style just because a search returns it. Keep the agent's work moving from the requirements in this file if a skill cannot be loaded.
 
-- Minimalist and modern
-- Premium editorial-inspired typography
-- Exceptional whitespace management
-- Strong information hierarchy
-- Original composition and asymmetrical details
-- Restrained color palette
-- Subtle technical and architectural references
-- Clean grids and refined alignment
-- Sophisticated transitions
-- Responsive and accessible components
+Before building, run the skill's design-system/search workflow using the actual discovered stack and a query such as “minimal personal full-stack and AI engineer portfolio, editorial, reference-led, interactive terminal, responsive.” Review the returned palette, type, layout, motion, UX, and stack suggestions against Bryl's live site and my verified identity. Keep only decisions that reinforce both; reject recommendations that produce a stock dashboard, generic SaaS landing page, or familiar AI-generated template.
 
-The website should not resemble a generic Tailwind, shadcn, or developer portfolio template.
+Avoid generated-looking defaults: generic gradient hero art, a grid of identical rounded cards, glowing AI brains, decorative circuit boards, piles of technology logos, arbitrary skill percentages, repeated all-caps labels, endless scroll-reveal effects, and terminal text used only as decoration. Do not select a palette, typeface, stock illustration, or layout just because it is common in developer portfolios. Avoid making every section the same width and shape. Every visual element needs a job, and the first screen must communicate my identity before it shows off effects.
 
-### Suggested Color Direction
+## Site structure and content
 
-Use a restrained palette:
+Use the simplest navigation that makes the content easy to find. The site should cover:
 
-- Background: #F8F7F4
-- Primary text: #17191D
-- Secondary text: #666B74
-- Primary accent: #245BEE
-- Borders: #E4E6EA
-- Cards: #FFFFFF
+- **Home:** a human, direct introduction and an accurate statement of what I build. Give visitors clear ways to explore my work and expertise.
+- **Projects:** give this the strongest content focus. Curate real projects and explain each project's problem, verified contribution, important engineering decisions, actual stack, status, and demonstrated outcomes. Link to a live demo or public source only when it exists. Use actual product imagery or clearly labeled architecture diagrams; do not use fake screenshots or generic concept illustrations as project evidence.
+- **Technology stack:** show the languages, frameworks, tools, and infrastructure I have demonstrably used. Group them by engineering role and connect them to supporting projects. Separate verified hands-on use from technologies I am currently learning; do not imply mastery from a dependency list.
+- **Education:** include verified schools, programs, degrees, and dates only when supported by personal materials or official sources.
+- **Certifications:** include only credentials that can be verified, with an official verification link when available. Do not invent certificates or imply an unverified credential is current.
+- **GitHub history:** link the verified GitHub profile and surface meaningful public repositories or contribution history when available. Use real data from the correct account, state the time period for any counts, and make repository links useful. Never fabricate contribution totals, activity, rankings, or project popularity. If live activity cannot be loaded reliably, show curated public repositories or a simple link to GitHub instead.
+- **Expertise:** keep this concise and evidence-led. Organize capabilities by engineering responsibility, connect them to projects, and distinguish demonstrated skills from areas I am learning. Avoid repeating the full stack list here.
+- **About:** keep it brief and personal, using verified details only. Omit generic biography filler if available facts do not support it.
+- **Contact:** make email and verified professional links easy to find. Do not show a fake or nonfunctional form.
 
-The accent color should provide recognition without dominating the interface.
+Use detailed case-study pages when they add real explanatory value. Explain architecture with a small diagram only when it clarifies a real system. Favor fewer, specific examples over a large collection of shallow cards.
 
-### Typography
+Prioritize the content in this order: projects and their engineering evidence; stack; education and certifications; GitHub history; then supporting biography and contact. Keep the page scannable and close to Bryl's section rhythm without adding unsupported sections just to match his site.
 
-Use a deliberate typography system combining:
+## Interaction: useful, playful, and real
 
-- Distinctive modern sans-serif headings
-- Highly readable body typography
-- Monospace typography for technical labels and metadata
+The portfolio should invite exploration and give visitors at least one memorable interaction tied to my actual work. Keep the experience understandable even if the visitor ignores every interactive feature.
 
-Avoid excessive font weights, font families, and decorative typography.
+- Make the engineering console a signature part of the portfolio, discoverable from the compact navigation and visible early in the experience. It should help visitors explore projects, understand an engineering decision, try a safe demo, or contact me. Provide a small documented command set, example prompts, clickable controls, and keyboard input. Example commands may include `help`, `projects`, `stack`, `about`, `contact`, and a project-specific demo command; derive the final set from verified content.
+- Give the console an AI-inspired feel through purposeful command parsing, a precise cursor, concise streamed output, a clear ready/running state, and a restrained signal or trace animation tied to the visual signature. Keep responses fast and honest. Do not fake network calls, model reasoning, live telemetry, or system access. If there is no real AI service, implement a local, deterministic portfolio guide that searches or selects from verified content and label it accurately; do not claim that it is an LLM.
+- Include at least one playable project demo, small sandbox, or interactive walkthrough when it can be grounded in real work. Keep the action obvious, explain inputs and outputs, make it responsive, and label synthetic/sample data. If a real project cannot be safely embedded, build a clearly labeled local simulation of a verified workflow. Never expose credentials or connect a toy interaction to a live system in a way that can mutate data.
+- Make the playful element feel like mine: use real project behavior, a verified workflow, or a small clearly labeled simulation as its subject. A bounded console, command palette, mini tool, or guided project walkthrough are options, not requirements to copy another site's feature. Keep the core portfolio easy to browse without playing.
+- Provide a genuine way for visitors to leave a comment or guestbook entry if the current app has, or can safely use, an appropriate persistent service. Inspect the existing stack and use its established backend when suitable. Validate and limit submissions, mitigate spam, provide success/error states, and state what information is collected. Do not publish a decorative form, imply that comments are shared when they are stored only in the visitor's browser, or add an unreviewed public write path. If a safe shared-storage option needs credentials, service setup, or approval that is unavailable, finish the rest of the site and report the exact remaining setup needed for comments.
+- Keep contact links obvious even when the console or guestbook is unavailable.
+- Make interactions work with mouse, touch, and keyboard. Give controls visible focus and clear feedback.
 
-### Unique Visual Signature
+## Motion
 
-Develop one original, recognizable visual motif inspired by connected systems, engineering structure, or intelligent computation.
+Use motion with a clear purpose: orientation, feedback, a meaningful transition, or a single memorable reveal. Let it reinforce the site's visual signature or show a real state change; do not add motion just to signal "AI" or "tech." Make the console's command/result transition feel tactile and considered, and give the playable interaction clear feedback. Favor one carefully choreographed moment and a few interactions over animating every heading and card. Motion must not delay reading or navigation, hijack scrolling, create excessive parallax, or hide content.
 
-It may subtly appear in:
+Respect `prefers-reduced-motion`; provide a reduced or static experience that remains complete. Keep animations lightweight and avoid adding a large library for effects that can be handled simply with the existing stack.
 
-- The personal wordmark
-- Section numbering
-- Navigation indicators
-- Project transitions
-- Decorative lines
-- Footer identity
+## Implementation constraints
 
-It must remain understated and consistent.
+- Work in the actual portfolio repository. First identify the correct repository root; do not mistake an unrelated workspace or another app for the portfolio.
+- Follow its existing framework, routing, coding conventions, and applicable repository instructions. Preserve working routes, integrations, and content flows unless a change is necessary for this redesign.
+- Keep content data separate from presentation where that fits the existing architecture. Use reusable components and shared design tokens without over-abstracting a small site.
+- Do not add a database, authentication, CMS, admin panel, AI API, or major dependency unless it is necessary for a requested, working feature and fits the existing project.
+- Protect secrets and personal data. Never put credentials in client code or commit environment secrets. Do not make external production changes, publish/deploy, or modify a live database without the required authorization.
+- Follow all existing repository safety, experiment, and data-access rules. A portfolio task does not grant permission to run model training, access restricted data, change production systems, or publish unapproved evaluation results.
+- Add page metadata and social-preview metadata using verified information. Keep media, fonts, JavaScript, and third-party requests lean.
 
-Do not use generic glowing AI brains, excessive circuit-board decorations, floating technology icons, or unnecessary 3D graphics.
+## Accessibility and responsive quality
 
----
+Build mobile-first and verify phone, tablet, and desktop layouts. Use semantic HTML, a logical heading structure, sufficient contrast, readable line lengths, descriptive links, accessible labels, keyboard navigation, clear focus states, touch-friendly targets, useful image alternatives, and screen-reader-compatible status messages. Do not rely on color, icons, hover, animation, or the console as the only way to understand or use the site. Prevent horizontal overflow.
 
-## 3. Navigation Architecture
+## Working method
 
-The navigation must be simple, complete, and purposeful.
+1. Locate the actual portfolio repository before editing. Read its applicable instructions, content, routes, integrations, and checks. Do not mistake an unrelated app or this prompt's location for the portfolio. Reuse prior work and do not rewrite working infrastructure without a clear reason.
+2. Discard the rejected draft as a factual or copy source. Inspect the current portfolio at desktop and mobile sizes and verify projects, stack, education, certifications, and GitHub account against available first-party evidence. Record a concise diagnosis of what feels generic or fails to communicate my identity, and what useful content or behavior should remain.
+3. Choose a concise visual thesis rooted in verified identity and project material. Set the core palette, type scale, spacing, composition rules, and one understated engineering motif. Check the choices against common AI-generated portfolio patterns and revise anything that looks interchangeable.
+4. Implement the complete visitor path: clear introduction, evidence through projects, capabilities, about, a useful way to explore or play, a real comment option or its exact setup dependency, and contact.
+5. Review the experience at common responsive sizes and check the actual links, navigation, keyboard flow, form or guestbook states, and reduced-motion behavior.
+6. Run the checks already documented by the repository that are relevant to the changes. Report exact commands and results; fix regressions caused by the work. Do not claim performance or accessibility scores unless measured.
+7. Do a final content and visual pass. Remove anything that does not help a visitor understand me, see evidence, explore, or connect.
 
-### Required Primary Navigation
+## Definition of done
 
-| Navigation | Purpose |
-|---|---|
-| Home | Introduce my professional identity and value proposition |
-| Work | Showcase projects, engineering decisions, and results |
-| Expertise | Present my full-stack and AI engineering capabilities |
-| About | Communicate my background, interests, and engineering philosophy |
-| Contact | Provide clear ways to connect and collaborate |
+- The site has a distinct visual identity based on my real work and does not look like a generic AI-generated portfolio.
+- Visitors can quickly understand who I am, my full-stack and AI engineering focus, and what evidence supports it.
+- Projects lead the story, followed by a verified stack, education, certifications, and useful GitHub history where available.
+- Project descriptions accurately show my role, engineering decisions, and verified outcomes.
+- Navigation and professional links work across screen sizes.
+- The terminal-inspired interaction and playable demo, when included, are useful, accessible, and connected to real portfolio content.
+- Comments are genuinely shared and safely handled, or the exact persistent-service setup needed to complete them is reported without presenting a fake feature.
+- Motion is purposeful and the site remains fully usable with reduced motion.
+- The code follows the existing project structure and its relevant checks have been run and reported accurately.
 
-### Secondary Navigation and Actions
+## Final report
 
-Provide contextually relevant access to:
-
-- GitHub
-- LinkedIn
-- Resume / CV
-- Email
-- Live project demonstrations, where available
-- Source code repositories, where public
-
-Do not clutter the primary navigation with every external profile.
-
-Place professional links in the hero, contact section, footer, or a compact contextual menu.
-
-### Navigation Requirements
-
-- Compact sticky navigation
-- Clear active-section indication
-- Accessible mobile navigation
-- Smooth and predictable section navigation
-- Keyboard accessibility
-- Visible focus states
-- Functional buttons and destinations
-- No placeholder or nonfunctional navigation elements
-
-The navigation should remain understandable without relying on icons alone.
-
----
-
-## 4. Homepage and Hero Section
-
-The homepage must immediately establish my engineering identity.
-
-### Suggested Headline
-
-**"I build intelligent software, from architecture to deployment."**
-
-### Suggested Supporting Description
-
-"I'm a Full-Stack Software Engineer exploring AI engineering, scalable applications, and intelligent systems. I work across interfaces, APIs, databases, machine learning, and deployment to transform ideas into functional digital products."
-
-Adapt this copy to my verified experience and actual capabilities.
-
-The introduction should sound confident, human, and technically credible.
-
-Avoid exaggerated claims such as:
-
-- World-class AI expert
-- Master of every programming language
-- Industry-leading architect
-- Guaranteed scalable systems
-
-### Hero Actions
-
-Primary:
-- Explore My Work
-
-Secondary:
-- View My Expertise
-
-Additional professional actions:
-- GitHub
-- LinkedIn
-- Download Resume, if an actual resume exists
-
-Keep the hero uncluttered.
-
-Do not use massive animated text, distracting background videos, excessive gradients, or unnecessary typing animations.
-
----
-
-## 5. Selected Work — Demonstrate Engineering Depth
-
-Projects should be the strongest evidence of my technical abilities.
-
-Create a visually distinctive project showcase that demonstrates not only what I built, but also how I engineered it.
-
-### Project Card Requirements
-
-Each project should display:
-
-- Project title
-- Brief problem statement
-- Project category
-- Core technologies
-- My specific responsibilities
-- Relevant visual preview
-- Live demonstration link, if available
-- Source code link, if public
-- View Case Study action
-
-### Suggested Project Categories
-
-- Full-Stack Applications
-- AI / Machine Learning Systems
-- Backend and API Engineering
-- Data Engineering and Automation
-- System Architecture
-- Experimental Projects
-
-Only display categories supported by actual projects.
-
-### Detailed Case Studies
-
-Each featured project should have a dedicated case study containing:
-
-1. Overview — What was developed?
-2. Problem — What challenge was being addressed?
-3. Role — What did I personally contribute?
-4. Architecture — How was the system structured?
-5. Technology — Why were these technologies selected?
-6. Engineering — What technical challenges were encountered?
-7. AI Integration — How were ML models or intelligent services integrated, if applicable?
-8. Results — What was actually accomplished?
-9. Lessons — What would I improve next?
-
-Provide architecture diagrams where they help explain system complexity.
-
-Do not fabricate outcomes, benchmarks, accuracy metrics, production traffic, or system performance.
-
-### Presentation Principles
-
-- Favor quality over quantity.
-- Make featured projects visually prominent.
-- Use consistent, meaningful project imagery.
-- Avoid excessive cards and repetitive descriptions.
-- Show actual engineering contributions rather than technology logos alone.
-
----
-
-## 6. Expertise — Full-Stack and AI Engineering
-
-This section must establish the breadth of my technical capabilities without becoming a wall of technology badges.
-
-Organize expertise by engineering responsibility.
-
-### A. Frontend Engineering
-
-Present experience with relevant technologies such as:
-
-- React
-- Next.js
-- TypeScript
-- Responsive interface development
-- Component architecture
-- Accessibility
-- Frontend performance
-
-### B. Backend Engineering
-
-Present relevant capabilities such as:
-
-- API development
-- Server-side application logic
-- Authentication and authorization
-- Data validation
-- Backend integrations
-- Error handling
-- Application security
-
-### C. Databases and Data Engineering
-
-Present relevant capabilities such as:
-
-- PostgreSQL
-- Supabase
-- Database modeling
-- Data pipelines
-- ETL processes
-- Data normalization
-- Query optimization
-
-### D. AI and Machine Learning Engineering
-
-Present relevant capabilities such as:
-
-- Python
-- Machine learning pipelines
-- LightGBM
-- LSTM
-- Time-series forecasting
-- Data preprocessing
-- Model evaluation
-- Model integration with applications
-- AI-powered automation
-
-### E. Infrastructure and Deployment
-
-Present actual experience or project exposure involving:
-
-- Git and GitHub
-- CI/CD
-- GitHub Actions
-- Application deployment
-- Environment configuration
-- Cloud services
-- Monitoring and reliability concepts
-
-### F. Software Architecture and Engineering Practices
-
-Present understanding of:
-
-- System design
-- Modular architecture
-- API contracts
-- Version control
-- Testing
-- Debugging
-- Documentation
-- Maintainability
-- Performance considerations
-
-### Expertise Presentation
-
-Avoid arbitrary percentage-based skill bars.
-
-Instead, build an elegant capability matrix or interactive engineering map.
-
-Each domain should include:
-
-- A concise explanation
-- Relevant technologies
-- Evidence from actual projects
-- Links to supporting case studies
-
-Differentiate demonstrated experience from technologies currently being learned.
-
-The purpose is to show what I can build and explain, not merely list what I recognize.
-
----
-
-## 7. About — Personal Identity and Engineering Philosophy
-
-Create a human, authentic About section that goes beyond a generic technical biography.
-
-Include:
-
-- Who I am
-- My background
-- Why I became interested in software engineering
-- My interest in intelligent systems
-- My approach to solving technical problems
-- My development philosophy
-- What I am currently learning or building
-- My professional direction
-
-### Recommended Positioning
-
-Communicate that I enjoy understanding how software systems work together, from the interface and application logic to data processing, machine learning, and infrastructure.
-
-Show curiosity, versatility, and dedication to improving my engineering foundations.
-
-The writing should feel natural and personal.
-
-Avoid corporate buzzwords, exaggerated confidence, or generic AI-generated personality statements.
-
-Include a professional photograph only if available and appropriate.
-
----
-
-## 8. Engineering Workflow — How I Build
-
-Create a compact section that communicates how I approach engineering problems.
-
-Use the following conceptual workflow:
-
-**Understand → Design → Architect → Build → Test → Deploy → Improve**
-
-Explain each stage briefly.
-
-This should demonstrate an end-to-end engineering mindset without pretending every project has reached production.
-
-The visual treatment should be clean and simple, potentially using an original interconnected-line motif.
-
-Do not make this an unnecessarily complicated interactive diagram.
-
----
-
-## 9. Contact — Clear Professional Connection
-
-The contact section should be direct, accessible, and easy to use.
-
-### Recommended Headline
-
-**"Have an idea worth building?"**
-
-### Description
-
-"I'm interested in meaningful software projects, intelligent systems, and opportunities to collaborate on challenging engineering problems."
-
-### Required Contact Actions
-
-- Send an Email
-- Connect on LinkedIn
-- Explore GitHub
-
-Optionally include a contact form if the backend supports secure and reliable message delivery.
-
-Do not display a fake working contact form.
-
-If a form is implemented, include:
-
-- Input validation
-- Loading state
-- Success and error feedback
-- Spam mitigation
-- Accessible field labels
-
----
-
-## 10. Footer Design
-
-Create a minimal footer containing:
-
-- Personal identity or wordmark
-- Short engineering tagline
-- GitHub
-- LinkedIn
-- Email
-- Back to Top
-- Copyright and current year
-
-Avoid duplicated navigation menus that add no usability benefit.
-
----
-
-## 11. Interaction and Motion Design
-
-Use subtle motion to improve feedback and orientation.
-
-Recommended interactions:
-
-- Refined link hover indicators
-- Smooth section scrolling
-- Subtle project preview transitions
-- Gentle content reveal animations
-- Meaningful active navigation states
-- Responsive button feedback
-
-### Motion Rules
-
-- Respect prefers-reduced-motion.
-- Never delay users unnecessarily.
-- Avoid scroll hijacking.
-- Avoid excessive parallax effects.
-- Do not animate every element.
-- Ensure the website remains fully usable without animation.
-
-Every interaction must serve a purpose.
-
----
-
-## 12. Responsive Design and Accessibility
-
-Design mobile-first.
-
-Support mobile, tablet, laptop, and large desktop screens.
-
-Apply established accessibility practices:
-
-- Semantic HTML
-- Logical heading hierarchy
-- Keyboard navigation
-- Visible keyboard focus
-- Sufficient color contrast
-- Accessible navigation menus
-- Proper image alternatives
-- Readable typography
-- Adequate touch targets
-- Reduced-motion support
-- Screen reader compatibility
-
-Ensure that the primary navigation, project content, and CTAs remain accessible across screen sizes.
-
----
-
-## 13. Full-Stack Implementation Requirements
-
-Do not treat this as a static visual mockup.
-
-Inspect the existing repository before choosing how to implement the portfolio.
-
-Preserve current routes, working interactions, content flows, and integrations unless a change is necessary for the requested outcome. Do not remove or replace working behavior as a design shortcut.
-
-Preserve the existing framework and architectural decisions when appropriate.
-
-For a Next.js-based project, prefer:
-
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Reusable React components
-- Accessible component primitives
-- Lightweight animations where necessary
-- Optimized images and fonts
-
-### Architecture Requirements
-
-- Separate content data from presentation logic.
-- Build reusable components.
-- Maintain centralized design tokens.
-- Use type-safe project and skill data structures.
-- Keep routing consistent.
-- Maintain responsive behavior.
-- Implement SEO metadata.
-- Include Open Graph metadata.
-- Generate a sitemap where applicable.
-- Avoid unnecessary client-side JavaScript.
-- Follow security best practices.
-
-Do not introduce a database, authentication system, admin panel, or CMS unless it solves a genuine requirement.
-
-A portfolio should remain lightweight and maintainable.
-
----
-
-## 14. Content Accuracy and Authenticity
-
-This is a critical requirement.
-
-The portfolio must be based on real personal information and verified work.
-
-Before generating final content:
-
-1. Inspect existing portfolio data and repositories.
-2. Reuse accurate information from available sources.
-3. Verify technology usage against actual projects.
-4. Distinguish personal contributions from team accomplishments.
-5. Never invent metrics, employment history, achievements, or certifications.
-6. Never label unfinished or experimental projects as production-ready.
-7. Do not describe tools as mastered merely because they appear in a dependency file.
-8. Keep unavailable information as structured content to be completed later rather than publishing fabricated claims.
-
-Professional credibility is more important than exaggerated presentation.
-
----
-
-## 15. Performance and Quality Standards
-
-Aim for:
-
-- Lighthouse Performance: 90+
-- Lighthouse Accessibility: 95+
-- Lighthouse Best Practices: 95+
-- Lighthouse SEO: 95+
-
-These are performance targets, not results to claim without measurement.
-
-Additionally:
-
-- Minimize layout shifts.
-- Optimize images.
-- Avoid unnecessary animation libraries.
-- Limit font loading.
-- Keep initial page rendering lightweight.
-- Optimize first load and interaction time for mobile devices and slower connections; use the smallest practical fonts, scripts, and media.
-- Prevent horizontal overflow.
-- Provide meaningful skeleton states only for genuinely asynchronous content.
-- Avoid skeletons for instantly available static content.
-- Ensure graceful error handling.
-- Check for broken links.
-- Avoid unnecessary third-party scripts.
-
----
-
-## 16. Explicit Design Restrictions
-
-Do not build:
-
-- A generic developer portfolio template
-- An overly animated landing page
-- A dashboard-style personal website
-- A terminal-themed portfolio as the entire identity
-- A website filled with glowing neon effects
-- A page dominated by floating technology icons
-- A cluttered skills section with dozens of badges
-- An overly complicated navigation system
-- A portfolio that focuses only on frontend engineering
-- A portfolio that presents AI engineering as merely calling an API
-- A portfolio that exaggerates engineering abilities
-
-Avoid adding features simply because they are visually impressive.
-
-**Every component must justify its presence through usability, communication, or visual identity.**
-
----
-
-## 17. Implementation Workflow
-
-Follow these phases:
-
-### Phase 1 — Discovery
-- Audit the existing repository.
-- Inspect current content.
-- Identify technical and design constraints.
-- Study the reference website's visual style and navigation, then adapt its broad qualities to this portfolio's own content and composition.
-
-### Phase 2 — Design Direction
-- Establish the original visual concept.
-- Define typography and design tokens.
-- Define the navigation structure.
-- Create responsive layout specifications.
-- Establish reusable component patterns.
-
-### Phase 3 — Development
-- Implement navigation and hero.
-- Implement featured work and case studies.
-- Implement the expertise matrix.
-- Implement About and workflow sections.
-- Implement contact and footer.
-- Integrate functional links and interactions.
-
-### Phase 4 — Quality Assurance
-- Run the checks documented in the repository README: npm run lint, npm run typecheck, npm test, and npm run build. Report each result accurately and address failures caused by the changes.
-- Verify accessibility.
-- Test responsive breakpoints.
-- Validate navigation.
-- Test interactions.
-- Check content accuracy.
-- Verify page performance.
-- Check for console and build errors.
-
-### Phase 5 — Final Review
-- Remove redundant elements.
-- Refine spacing and typography.
-- Ensure visual consistency.
-- Review all written content.
-- Confirm every element serves a clear purpose.
-
----
-
-## 18. Definition of Done
-
-The portfolio is complete only when:
-
-- It has an original and recognizable visual identity.
-- It feels visually related to the reference through its minimalism, typography, whitespace, and navigation, while retaining an original identity and composition.
-- Visitors immediately understand my full-stack and AI engineering focus.
-- Every primary navigation item works.
-- Projects demonstrate real engineering thinking.
-- Expertise is organized by capabilities, not arbitrary ratings.
-- All professional links point to valid destinations.
-- Content reflects my actual experience.
-- The experience works beautifully on mobile and desktop.
-- Accessibility and performance have been tested.
-- The site is easy to maintain and extend.
-- There are no unnecessary sections, visual effects, or decorative features.
-
-## Final Guiding Principle
-
-**Build a portfolio that feels effortless to use but carefully engineered behind the scenes.**
-
-The visual design should be simple enough to understand immediately, distinctive enough to remember, and substantial enough to demonstrate my capabilities across frontend development, backend engineering, databases, AI systems, architecture, and deployment.
-
-The result should communicate one consistent professional identity:
-
-**"An engineer who can connect every layer of software into a complete, useful system."**
+Summarize what changed, the main design and interaction choices, the checks run with their results, and any remaining user action needed for verified personal details, comment-service setup, or external links. Be explicit about anything that could not be verified or completed. Do not claim a deployment, metric, feature, or integration that did not happen.

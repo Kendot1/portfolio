@@ -7,7 +7,7 @@ import { useTheme } from "./ThemeProvider";
 
 const links = [
   { id: "work", label: "Work" }, { id: "explore", label: "Console" }, { id: "stack", label: "Stack" },
-  { id: "about", label: "About" }, { id: "contact", label: "Contact" },
+  { id: "education", label: "Education" }, { id: "about", label: "About" }, { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {

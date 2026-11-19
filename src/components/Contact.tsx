@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section-shell contact-section" aria-labelledby="contact-title">
       <div className="page-shell">
-        <SectionHeader id="contact-title" number="04" title="Contact" />
+        <SectionHeader id="contact-title" number="05" title="Contact" />
         <div className="contact-panel">
           <div>
             <h3 className="contact-title">Have an idea worth building?</h3>

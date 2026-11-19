@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section id="about" className="section-shell" aria-labelledby="about-title">
       <div className="page-shell">
-        <SectionHeader id="about-title" number="03" title="About" />
+        <SectionHeader id="about-title" number="04" title="About" />
         <div className="about-copy">
           <div>
             <h3 className="about-statement">Computer science student. Full-stack builder.</h3>

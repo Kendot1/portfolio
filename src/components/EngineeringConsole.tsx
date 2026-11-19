@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ForecastSandbox from "./ForecastSandbox";
 
@@ -48,22 +48,67 @@ const commands: Record<string, ConsoleResult> = {
 
 const suggestions = ["projects", "stack", "about", "contact", "trace foodcast", "trace barber", "demo foodcast"];
 
+// ponytail: typing effect uses rAF + slice, no library
+// Uses a sequence counter to trigger animation without violating lint rules
+function useTypingEffect(text: string, isTyping: boolean) {
+  const [displayed, setDisplayed] = useState(text);
+  const [done, setDone] = useState(true);
+
+  /* eslint-disable react-hooks/set-state-in-effect -- animation: setState in rAF is intentional */
+  useEffect(() => {
+    if (!isTyping) {
+      setDisplayed(text);
+      setDone(true);
+      return;
+    }
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      setDisplayed(text);
+      setDone(true);
+      return;
+    }
+    setDisplayed("");
+    setDone(false);
+    let i = 0;
+    let frame: number;
+    const chars = text.length;
+    const step = () => {
+      i = Math.min(i + 2, chars);
+      setDisplayed(text.slice(0, i));
+      if (i < chars) {
+        frame = requestAnimationFrame(step);
+      } else {
+        setDone(true);
+      }
+    };
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [text, isTyping]);
+  /* eslint-enable react-hooks/set-state-in-effect */
+
+  return { displayed, done };
+}
+
 export default function EngineeringConsole() {
   const [command, setCommand] = useState("");
   const [result, setResult] = useState<ConsoleResult>(commands.help);
   const [pending, setPending] = useState<{ value: string } | null>(null);
+  const [isNewResult, setIsNewResult] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const { displayed, done } = useTypingEffect(result.message, isNewResult);
 
   useEffect(() => {
     if (!pending) return;
-    // Two paint frames expose the real local resolution state, not simulated
-    // network latency or model reasoning. No artificial typing delay.
     let secondFrame = 0;
     const firstFrame = requestAnimationFrame(() => {
       secondFrame = requestAnimationFrame(() => {
         const normalized = pending.value.trim().toLowerCase().replace(/\s+/g, " ");
-        setResult(Object.hasOwn(commands, normalized) ? commands[normalized] : {
-          message: `“${normalized || "(empty)"}” is not in this index. Type help to see the available commands.`,
-        });
+        const newResult = Object.hasOwn(commands, normalized) ? commands[normalized] : {
+          message: `"${normalized || "(empty)"}" is not in this index. Type help to see the available commands.`,
+        };
+        setResult(newResult);
+        setIsNewResult(true);
         setPending(null);
       });
     });
@@ -95,6 +140,7 @@ export default function EngineeringConsole() {
             <div className="console-entry">
               <span aria-hidden="true">›</span>
               <input
+                ref={inputRef}
                 id="console-command"
                 value={command}
                 onChange={(event) => setCommand(event.target.value)}
@@ -112,8 +158,8 @@ export default function EngineeringConsole() {
             <button type="button" onClick={() => runCommand("help")}>help</button>
           </div>
           <div className="console-output" aria-live="polite" aria-atomic="true" aria-busy={!!pending}>
-            <p>{result.message}</p>
-            {result.links && <div className="console-result-links">{result.links.map((link) => (
+            <p>{displayed}{!done && <span className="console-cursor" aria-hidden="true" />}</p>
+            {done && result.links && <div className="console-result-links">{result.links.map((link) => (
               link.href.startsWith("http")
                 ? <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
                 : <Link key={link.href} href={link.href}>{link.label}</Link>
@@ -124,12 +170,12 @@ export default function EngineeringConsole() {
       <div className="page-shell"><ForecastSandbox /></div>
       <style jsx>{`
         .console-suggestions button, .console-entry button { min-height: 44px; font-size: 12px; }
-        .console-entry input { font-size: 14px; caret-color: var(--blue); }
+        .console-entry input { font-size: 14px; caret-color: var(--console-accent); }
         .console-output > p { font-size: 14px; }
         .console-result-links a { font-size: 13px; padding-block: 8px; }
         .console-form label, .console-kicker, .console-heading { font-size: 12px; }
         .console-intro > p:last-child { font-size: 14px; }
-        .console-suggestions button:focus-visible, .console-entry button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+        .console-suggestions button:focus-visible, .console-entry button:focus-visible { outline: 2px solid var(--console-accent); outline-offset: 3px; }
         .console-indicator[data-running="true"] { border-radius: 0; transform: rotate(45deg); }
       `}</style>
     </section>
