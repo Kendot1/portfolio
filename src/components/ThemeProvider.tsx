@@ -5,10 +5,10 @@ import { createContext, ReactNode, useContext, useEffect, useSyncExternalStore }
 type Theme = "light" | "dark";
 interface ThemeContextType { theme: Theme; toggleTheme: () => void; }
 const THEME_KEY = "ken-portfolio-theme";
-const ThemeContext = createContext<ThemeContextType>({ theme: "light", toggleTheme: () => {} });
+const ThemeContext = createContext<ThemeContextType>({ theme: "dark", toggleTheme: () => {} });
 function getStoredTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  return localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light";
+  if (typeof window === "undefined") return "dark";
+  try { return localStorage.getItem(THEME_KEY) === "light" ? "light" : "dark"; } catch { return "dark"; }
 }
 function subscribe(onChange: () => void) {
   const handleStorage = () => onChange();
@@ -20,7 +20,7 @@ function subscribe(onChange: () => void) {
   };
 }
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const theme = useSyncExternalStore(subscribe, getStoredTheme, (): Theme => "light");
+  const theme = useSyncExternalStore(subscribe, getStoredTheme, (): Theme => "dark");
   useEffect(() => { document.documentElement.setAttribute("data-theme", theme); }, [theme]);
   const toggleTheme = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";

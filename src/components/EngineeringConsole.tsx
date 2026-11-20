@@ -41,7 +41,7 @@ const commands: Record<string, ConsoleResult> = {
     links: [{ label: "Open the feature lab", href: "#foodcast-lab" }],
   },
   contact: {
-    message: "The verified public contact route is GitHub. Email and other profiles are not published until their destinations are confirmed.",
+    message: "Explore Kenneth’s public repositories on GitHub. A direct contact address is not currently published.",
     links: [{ label: "Open GitHub", href: "https://github.com/Kendot1" }],
   },
 };
