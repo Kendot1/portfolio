@@ -1,10 +1,10 @@
-import SectionHeader from "./SectionHeader";
+
 
 export default function About() {
   return (
-    <section id="about" className="section-shell" aria-labelledby="about-title">
+    <section className="about-biography" aria-labelledby="about-title">
       <div className="page-shell">
-        <SectionHeader id="about-title" number="04" title="About" />
+        <h2 id="about-title" className="about-label">A little about me</h2>
         <div className="about-copy">
           <div>
             <h3 className="about-statement">Computer science student. Full-stack builder.</h3>

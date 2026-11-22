@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import "./credentials.css";
+import "./projects-redesign.css";
 import "./device.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
@@ -35,7 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         <a className="skip-link" href="#main-content">Skip to content</a>
-        <ThemeProvider><div className="device-chassis"><Navbar /><main id="main-content">{children}</main><Footer /></div></ThemeProvider>
+        <ThemeProvider><Navbar /><main id="main-content">{children}</main><Footer /></ThemeProvider>
       </body>
     </html>
   );

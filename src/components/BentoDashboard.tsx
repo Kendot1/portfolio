@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowDownRight, FiArrowUpRight, FiCode, FiGithub, FiTerminal } from "react-icons/fi";
+import { FiArrowDownRight, FiArrowUpRight, FiGithub, FiLinkedin, FiTerminal } from "react-icons/fi";
 import { SiNextdotjs, SiPython, SiPytorch, SiReact, SiSupabase, SiTypescript } from "react-icons/si";
 import ForecastCompanion from "./ForecastCompanion";
 
@@ -16,14 +16,14 @@ export default function BentoDashboard() {
       <div className="bento-panel bento-intro">
         <p className="bento-eyebrow">Hi, I’m Kenneth.</p>
         <h1>Kenneth Bitun</h1>
-        <p className="bento-role">Full-Stack Developer &amp; Aspiring AI Engineer</p>
-        <p className="bento-statement">Ideas are better when they work.</p>
-        <p className="bento-copy">I’m a computer science student building across interfaces, APIs, data, and machine learning. I like understanding how the pieces fit together, then making them useful.</p>
+        <p className="bento-role">Computer Science Student · AI Engineer · Full Stack Engineer</p>
+        <p className="bento-statement">Thoughtful interfaces. Connected systems.</p>
+        <p className="bento-copy">I connect thoughtful interfaces with the systems and data behind them, building products that make complex tasks easier to understand.</p>
         <a className="bento-inline-link" href="#work">See selected work <FiArrowDownRight aria-hidden="true" /></a>
       </div>
       <Link className="bento-panel bento-foodcast" href="/work/foodcast">
-        <Image src="/foodcast-cover.webp" alt="" fill sizes="(max-width: 700px) 100vw, 35vw" priority />
-        <div className="bento-project-label"><span>Repository artwork · Thesis project</span><h2>Foodcast</h2><p>Forecasting, from data to interface.</p></div>
+        <Image src="/foodcast-screen.png" alt="Foodcast interface showing food price search and market information" fill sizes="(max-width: 700px) 100vw, 35vw" priority />
+        <div className="bento-project-label"><span>Product preview · Thesis project</span><h2>Foodcast</h2><p>Forecasting, from data to interface.</p></div>
         <span className="bento-arrow" aria-hidden="true"><FiArrowUpRight /></span>
       </Link>
       <Link className="bento-panel bento-barber" href="/work/supremo-barber">
@@ -37,8 +37,8 @@ export default function BentoDashboard() {
         <div className="bento-keys">
           <a href="https://github.com/Kendot1" target="_blank" rel="noreferrer" aria-label="GitHub profile"><FiGithub aria-hidden="true" /></a>
           <a href="#explore" aria-label="Open engineering console"><FiTerminal aria-hidden="true" /></a>
-          <a href="#work" aria-label="See selected work"><FiCode aria-hidden="true" /></a>
-          <a href="#stack" aria-label="See technology stack"><FiArrowDownRight aria-hidden="true" /></a>
+          <a href="https://www.linkedin.com/in/kennethbitun/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><FiLinkedin aria-hidden="true" /></a>
+          <a href="mailto:kennethbitun344@gmail.com" aria-label="Email Kenneth"><FiArrowUpRight aria-hidden="true" /></a>
         </div>
       </div>
       <div className="bento-panel bento-character"><p className="bento-small">A little curiosity</p><ForecastCompanion /></div>
@@ -53,7 +53,7 @@ export default function BentoDashboard() {
         <span className="bento-arrow" aria-hidden="true"><FiArrowDownRight /></span>
       </a>
       <div className="bento-panel bento-learning"><p className="bento-small">What I’m exploring</p><h2>Interfaces, data, and models working together.</h2><p>Building and documenting the engineering decisions behind the work.</p></div>
-      <div className="bento-panel bento-contact"><p className="bento-small">Get to know the work</p><h2>Let’s work together.</h2><p>Explore the projects and find my public work on GitHub.</p><a className="bento-arrow" href="https://github.com/Kendot1" target="_blank" rel="noreferrer" aria-label="Visit Kenneth’s GitHub profile"><FiArrowUpRight aria-hidden="true" /></a></div>
+      <div className="bento-panel bento-contact"><p className="bento-small">Have an idea?</p><h2>Let’s work together.</h2><p>Questions, projects, or ideas are welcome.</p><a className="bento-arrow" href="mailto:kennethbitun344@gmail.com" aria-label="Email Kenneth"><FiArrowUpRight aria-hidden="true" /></a></div>
     </section>
   );
 }

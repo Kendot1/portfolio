@@ -14,7 +14,7 @@ const commands: Record<string, ConsoleResult> = {
     message: "Local deterministic guide, not an AI model or a shell. Commands: help, projects, stack, about, contact, trace foodcast, trace barber, demo foodcast. Select a command below or type one and press Enter.",
   },
   projects: {
-    message: "Two projects have detailed, source-backed engineering notes.",
+    message: "Four projects are presented in the selected work section. Foodcast and Supremo Barber also have detailed engineering notes.",
     links: [
       { label: "Foodcast · forecasting system", href: "/work/foodcast" },
       { label: "Supremo Barber · booking system", href: "/work/supremo-barber" },
@@ -33,7 +33,7 @@ const commands: Record<string, ConsoleResult> = {
     links: [{ label: "Explore the stack and project evidence", href: "/#stack" }],
   },
   about: {
-    message: "Kenneth Bitun builds across application interfaces, backend data flows, and machine-learning workflows. The Foodcast contribution recorded in repository history includes LSTM and LightGBM implementation; it is not a claim of sole authorship.",
+    message: "Kenneth Bitun is a computer science student and developer building across application interfaces, backend data flows, and machine-learning workflows. FOODCAST is his thesis project.",
     links: [{ label: "About Kenneth", href: "/#about" }],
   },
   "demo foodcast": {
@@ -41,8 +41,8 @@ const commands: Record<string, ConsoleResult> = {
     links: [{ label: "Open the feature lab", href: "#foodcast-lab" }],
   },
   contact: {
-    message: "Explore Kenneth’s public repositories on GitHub. A direct contact address is not currently published.",
-    links: [{ label: "Open GitHub", href: "https://github.com/Kendot1" }],
+    message: "Email Kenneth at kennethbitun344@gmail.com, or explore the public work on GitHub.",
+    links: [{ label: "Email Kenneth", href: "mailto:kennethbitun344@gmail.com" }, { label: "Open GitHub", href: "https://github.com/Kendot1" }],
   },
 };
 
@@ -162,7 +162,7 @@ export default function EngineeringConsole() {
             {done && result.links && <div className="console-result-links">{result.links.map((link) => (
               link.href.startsWith("http")
                 ? <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
-                : <Link key={link.href} href={link.href}>{link.label}</Link>
+                : link.href.startsWith("mailto:") ? <a key={link.href} href={link.href}>{link.label}</a> : <Link key={link.href} href={link.href}>{link.label}</Link>
             ))}</div>}
           </div>
         </div>

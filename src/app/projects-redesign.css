@@ -1,0 +1,20 @@
+.showcase-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 24px; }
+.showcase-item { min-width: 0; }
+.showcase-foodcast { grid-column: 1 / -1; }
+.showcase-visual { position: relative; overflow: hidden; aspect-ratio: 1.55; background: #dce6e3; }
+.showcase-visual-foodcast { aspect-ratio: 1914 / 836; background: #e4e9e3; }
+.showcase-visual-foodcast img { object-fit: cover; }
+.showcase-visual-supremo-barber { background: #2e4141; color: #f2eee4; }
+.showcase-visual-daddy-bons-kitchen { background: #e8cbb1; color: #4f302a; }
+.showcase-visual-lucent { background: #d8dfe9; color: #293b56; }
+.showcase-concept { height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(20px, 4vw, 36px); }
+.showcase-concept > span { max-width: 8ch; font-size: clamp(28px, 4vw, 48px); line-height: 1.02; letter-spacing: -.04em; font-weight: 600; }
+.showcase-concept small { font-size: 12px; }
+.showcase-copy { padding-top: 18px; }
+.showcase-copy .project-title { margin-top: 8px; }
+.showcase-copy .project-summary { max-width: 62ch; }
+@media (max-width: 700px) {
+  .showcase-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .showcase-foodcast { grid-column: auto; }
+  .showcase-visual-foodcast { aspect-ratio: 1.55; }
+}

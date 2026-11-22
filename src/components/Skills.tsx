@@ -6,8 +6,8 @@ export default function Skills() {
   return (
     <section id="stack" className="section-shell" aria-labelledby="expertise-title">
       <div className="page-shell">
-        <SectionHeader id="expertise-title" number="02" title="Stack" aside="Tools used in projects">
-          A short, evidence-led list. Each group links to work where the tools appear.
+        <SectionHeader id="expertise-title" number="" title="Stack" aside="Tools and technologies">
+          Technologies from my published portfolio, grouped by role; project links show related work.
         </SectionHeader>
         <div className="expertise-grid">
           {skillGroups.map((group) => {
@@ -16,10 +16,10 @@ export default function Skills() {
               <article className="expertise-row" key={group.id}>
                 <div><h3 className="expertise-title">{group.title}</h3><p className="expertise-note">{group.note}</p></div>
                 <ul className="expertise-skills">{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
-                <div className="expertise-evidence">
-                  <span className="evidence-label">Used in</span>
+                {evidence.length > 0 && <div className="expertise-evidence">
+                  <span className="evidence-label">Related projects</span>
                   {evidence.map((project) => <Link key={project.id} href={`/work/${project.id}`}>{project.title}</Link>)}
-                </div>
+                </div>}
               </article>
             );
           })}

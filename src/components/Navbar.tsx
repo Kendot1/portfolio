@@ -6,8 +6,7 @@ import { FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
 import { useTheme } from "./ThemeProvider";
 
 const links = [
-  { id: "work", label: "Work" }, { id: "explore", label: "Console" }, { id: "stack", label: "Stack" },
-  { id: "education", label: "Education" }, { id: "about", label: "About" }, { id: "contact", label: "Contact" },
+  { id: "home", label: "Home" }, { id: "work", label: "Work" }, { id: "about", label: "About" }, { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -66,9 +65,8 @@ export default function Navbar() {
           <nav className="primary-nav" aria-label="Primary navigation">
             {links.map((link) => <a key={link.id} className="nav-link" href={hrefFor(link.id)} aria-current={activeSection === link.id ? "location" : undefined}>{link.label}</a>)}
           </nav>
-          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={"Switch to " + (theme === "light" ? "dark" : "light") + " theme"}>
-            {theme === "light" ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}
-          </button>
+          <a className="resume-link" href="https://kennethbitun.vercel.app/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={"Switch to " + (theme === "light" ? "dark" : "light") + " theme"}>{theme === "light" ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}</button>
           <button ref={menuButton} className="menu-toggle" type="button" onClick={() => setMobileOpen((open) => !open)} aria-expanded={mobileOpen} aria-controls="mobile-navigation" aria-label={mobileOpen ? "Close navigation" : "Open navigation"}>
             {mobileOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
           </button>
@@ -76,6 +74,7 @@ export default function Navbar() {
       </div>
       <nav id="mobile-navigation" className="mobile-nav-panel" aria-label="Mobile navigation" hidden={!mobileOpen}>
         {links.map((link) => <a key={link.id} className="mobile-nav-link" href={hrefFor(link.id)} aria-current={activeSection === link.id ? "location" : undefined} onClick={closeMenu}>{link.label}</a>)}
+        <a className="mobile-nav-link" href="https://kennethbitun.vercel.app/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
       </nav>
     </header>
   );
