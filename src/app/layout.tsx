@@ -4,6 +4,7 @@ import "./globals.css";
 import "./credentials.css";
 import "./projects-redesign.css";
 import "./device.css";
+import "./portfolio-redesign.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

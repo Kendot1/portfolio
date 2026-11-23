@@ -25,10 +25,10 @@ export interface FeaturedProject {
 export const featuredProjects: FeaturedProject[] = [
   {
     id: "foodcast", index: "01", title: "Foodcast", category: "AI / machine learning",
-    summary: "A food price forecasting project built around machine learning and historical market data.",
+    summary: "A food price forecasting project focused on agricultural commodities and historical market data.",
     context: "Market-price history needs to be collected, prepared consistently, and connected to forecasts people can explore in an application.",
     approach: "A shared Python forecast engine brings together feature preparation, a PyTorch LSTM, LightGBM, and a validation-tuned ensemble. Forecasts are written to Supabase and read by a Next.js interface through an Edge API.",
-    roleSummary: "Lead developer",
+    roleSummary: "Lead developer · thesis project",
     role: "Lead developer of the FOODCAST thesis project, building the interface, machine-learning workflows, and application data integration.",
     architecture: "Report ingestion and price history feed a Python feature and forecasting pipeline. The writer persists forecast runs in Supabase; an Edge API supplies product, history, and status data to the Next.js interface.",
     flow: ["Price history", "Python features & models", "Supabase forecasts", "Edge API", "Next.js interface"],
@@ -42,8 +42,8 @@ export const featuredProjects: FeaturedProject[] = [
     liveUrl: "https://foodcastt.vercel.app/", githubUrl: "https://github.com/Kendot1/THESIS",
   },
   {
-    id: "supremo-barber", index: "02", title: "Supremo Barber", category: "Full-stack product",
-    summary: "An appointment booking and management system for customers, barbers, and administrators.",
+    id: "supremo-barber", index: "02", title: "Supremo Barbers", category: "Full-stack product",
+    summary: "A barbershop booking and management platform.",
     context: "Customers need to book and manage visits, barbers need a usable schedule, and administrators need oversight of appointments and payment proofs.",
     approach: "A React and Vite application separates customer, barber, and administrator workspaces. A typed API service calls a Hono Supabase Edge Function, with authentication, ownership checks, and booking rules on the server.",
     architecture: "Role-specific React workspaces share a typed API service. The Hono Edge API verifies Supabase access tokens, loads the user profile, and applies role and ownership checks before accessing PostgreSQL records.",
@@ -52,15 +52,19 @@ export const featuredProjects: FeaturedProject[] = [
     technologyRationale: "React and Vite support the role-based client. A shared TypeScript rules module keeps browser and server appointment rules aligned; Hono organizes the Edge HTTP routes around Supabase Auth and PostgreSQL.",
     results: "The repository implements booking, scheduling, role workspaces, rescheduling checks, and payment-proof handling. Individual responsibilities and business outcomes are not sufficiently documented to claim here.",
     nextSteps: "Audit deployed database policies and add database-level concurrency protection. The current in-memory booking lock covers one Edge isolate, not every concurrent instance.",
-    techStack: ["React", "TypeScript", "Vite", "Hono", "Supabase", "PostgreSQL"], accent: "#C35C3C", status: "Source available", liveUrl: "https://supremobarber.vercel.app/", githubUrl: "https://github.com/Kendot1/Supremo_Barbers",
+    techStack: ["React", "TypeScript", "Vite", "Hono", "Supabase", "PostgreSQL"], accent: "#C35C3C", status: "Source available", liveUrl: null, githubUrl: "https://github.com/Kendot1/Supremo_Barbers",
+  },
+  {
+    id: "veyra", index: "03", title: "VEYRA", category: "AI-assisted applicant tracking",
+    summary: "An AI-assisted applicant tracking system.", context: "Project context and implementation details have not yet been confirmed.", approach: "Project details pending source verification.", techStack: [], accent: "#287452", status: "Details to verify", liveUrl: null, githubUrl: null,
   },
 ];
 
 export const skillGroups = [
   { id: "interfaces", number: "01", title: "Frontend", note: "Interfaces and web applications", skills: ["JavaScript", "TypeScript", "React", "Next.js", "Vite", "Tailwind CSS"], evidence: ["foodcast", "supremo-barber"] },
-  { id: "backend", number: "02", title: "Backend and databases", note: "APIs, storage and application logic", skills: ["Node.js", "Express.js", "Supabase", "PostgreSQL", "MySQL", "MongoDB"], evidence: ["foodcast", "supremo-barber"] },
+  { id: "backend", number: "02", title: "Backend and data", note: "APIs, storage and application logic", skills: ["Node.js", "Hono", "Supabase", "PostgreSQL"], evidence: ["foodcast", "supremo-barber"] },
   { id: "machine-learning", number: "03", title: "AI and machine learning", note: "Forecasting and data workflows", skills: ["Python", "PyTorch", "LightGBM", "pandas", "NumPy"], evidence: ["foodcast"] },
-  { id: "engineering", number: "04", title: "Developer tools", note: "Tools and collaboration", skills: ["Git", "GitHub", "VS Code", "Antigravity", "PyCharm", "Discord", "Jira"], evidence: [] },
+  { id: "engineering", number: "04", title: "Developer tools", note: "Tools and collaboration", skills: ["Git", "GitHub", "VS Code"], evidence: [] },
 ];
 
 export const processSteps = [

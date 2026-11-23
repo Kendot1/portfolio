@@ -2,12 +2,11 @@ const certificateBase = "https://kennethbitun.vercel.app/certifications";
 
 export const experience = [
   {
-    role: "AI Intern", period: "Nov 2026 – Present", organization: "FlyRank AI · Internship · Philippines · Remote",
-    description: "Currently interning at FlyRank AI as an AI intern, focusing on General AI Fluency.",
-    responsibilities: [], technologies: [],
+    role: "AI Intern", period: "November 2026–present", organization: "FlyRank AI",
+    description: "AI internship focused on General AI Fluency.", responsibilities: [], technologies: [],
   },
   {
-    role: "Lead Developer", period: "March 15 – Present", organization: "FOODCAST · Thesis Project",
+    role: "Lead Developer", period: "March 15–present", organization: "FOODCAST · Thesis project",
     description: "Designed and built FOODCAST, a full-stack food-price forecasting platform, from end to end.",
     responsibilities: ["Developed the web interface for exploring food-price forecasts.", "Built the machine-learning forecasting workflows.", "Integrated application data storage with the platform."],
     technologies: ["Python", "PyTorch", "Next.js", "TypeScript", "Supabase", "LSTM", "LightGBM"],
