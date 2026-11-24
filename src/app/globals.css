@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
   --paper: #fafaf8; --paper-deep: #f0f1ef; --ink: #1a1c20; --muted: #5c6370;
-  --line: #e0e3e7; --card: #fff; --blue: #2f5ce6; --blue-dark: #1f45b8; --on-accent: #fff;
+  --line: #d8d9ce; --card: #fff; --blue: #2f5ce6; --blue-dark: #1f45b8; --on-accent: #fff;
   --console: #1a1c20; --console-ink: #f4f3f0; --console-muted: #9da3af; --console-line: #2e333b; --console-accent: #8eaaff;
   --display: var(--font-inter, "Inter", "Helvetica Neue", Arial, sans-serif);
   --body: var(--font-inter, "Inter", "Helvetica Neue", Arial, sans-serif);
@@ -11,7 +11,7 @@
 [data-theme="dark"] {
   color-scheme: dark;
   --paper: #141518; --paper-deep: #1d1f24; --ink: #eeeee8; --muted: #9da3af;
-  --line: #2e333b; --card: #1a1c20; --blue: #8eaaff; --blue-dark: #b3c6ff; --on-accent: #141518;
+  --line: #383e36; --card: #1a1c20; --blue: #8eaaff; --blue-dark: #b3c6ff; --on-accent: #141518;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 82px; }

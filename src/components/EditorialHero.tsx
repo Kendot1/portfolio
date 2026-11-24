@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { contactLinks } from "@/data/portfolio";
 
 export default function EditorialHero() {
@@ -7,8 +6,8 @@ export default function EditorialHero() {
   return (
     <section id="home" className="profile" aria-labelledby="profile-title">
       <figure className="profile-photo">
-        <Image src="/kenneth-portrait.png" alt="Kenneth Bitun" width={1106} height={1422} priority sizes="(max-width: 430px) 142px, (max-width: 700px) 195px, (max-width: 1100px) 180px, 236px" />
-        <figcaption>Photo</figcaption>
+        <div className="profile-photo-placeholder" role="img" aria-label="Your photo">Your photo</div>
+        <figcaption>Your photo</figcaption>
       </figure>
       <div className="profile-copy">
         <p className="profile-kicker">Hi, I’m Kenneth.</p>
