@@ -5,7 +5,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="section-shell credentials-section" aria-labelledby="certifications-title">
       <div className="page-shell">
-        <SectionHeader id="certifications-title" number="05" title="Certifications" />
+        <SectionHeader id="certifications-title" number="04" title="Certifications" />
         <div className="certificate-grid">
           {certifications.map((certificate) => (
             <article className="certificate" key={certificate.slug}>

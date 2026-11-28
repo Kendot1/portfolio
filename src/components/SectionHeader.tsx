@@ -12,7 +12,7 @@ export default function SectionHeader({ id, number, title, aside, children }: Se
   return (
     <>
       <div className="section-header">
-        <h2 id={id} className="section-heading">{number && <><span>{number}</span> — </>}{title}</h2>
+        <h2 id={id} className="section-heading">{number && <><span aria-hidden="true">{number}</span> </>}{title}</h2>
         {aside && <span className="section-aside">{aside}</span>}
       </div>
       {children && <p className="section-description">{children}</p>}

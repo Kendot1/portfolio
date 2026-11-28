@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./credentials.css";
-import "./projects-redesign.css";
-import "./device.css";
+
+
 import "./portfolio-redesign.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
@@ -14,18 +14,18 @@ const jetbrains = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: { default: "Kenneth Bitun — Full-stack & AI Engineering", template: "%s — Kenneth Bitun" },
-  description: "A portfolio of full-stack product work, machine-learning projects, and the engineering decisions that connect them.",
-  keywords: ["Kenneth Bitun", "full-stack developer", "AI engineering", "machine learning", "portfolio"],
+  title: { default: "Kenneth Bitun | Full-stack & Machine Learning", template: "%s | Kenneth Bitun" },
+  description: "Kenneth Bitun is a Computer Science student at Our Lady of Fatima University building full-stack applications and exploring machine learning.",
+  keywords: ["Kenneth Bitun", "full-stack development", "machine learning", "portfolio"],
   authors: [{ name: "Kenneth Bitun" }],
   openGraph: {
-    title: "Kenneth Bitun — Full-stack & AI Engineering",
-    description: "Software that connects interfaces, data, and intelligent systems.",
+    title: "Kenneth Bitun | Full-stack & Machine Learning",
+    description: "Full-stack applications, machine-learning research, and the engineering decisions that connect them.",
     type: "website",
-    images: [{ url: "/foodcast-cover.webp", alt: "Rice fields used as Foodcast source artwork" }],
+    images: [{ url: "/kenneth-portrait.png", alt: "Portrait of Kenneth Bitun" }],
   },
 };
-export const viewport: Viewport = { colorScheme: "light dark", themeColor: "#F8F7F4" };
+export const viewport: Viewport = { colorScheme: "light dark", themeColor: [{ media: "(prefers-color-scheme: light)", color: "#f4f4ee" }, { media: "(prefers-color-scheme: dark)", color: "#1d1a25" }] };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const structuredData = {

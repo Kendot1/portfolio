@@ -1,22 +1,26 @@
-import { contactLinks } from "@/data/portfolio";
+import Image from "next/image";
+import { contactLinks, emailAddress, resumeUrl } from "@/data/portfolio";
 
 export default function EditorialHero() {
-  const linkedin = contactLinks.find((link) => link.label === "LinkedIn");
-  const github = contactLinks.find((link) => link.label === "GitHub");
   return (
     <section id="home" className="profile" aria-labelledby="profile-title">
-      <figure className="profile-photo">
-        <div className="profile-photo-placeholder" role="img" aria-label="Your photo">Your photo</div>
-        <figcaption>Your photo</figcaption>
-      </figure>
       <div className="profile-copy">
-        <p className="profile-kicker">Hi, I’m Kenneth.</p>
         <h1 id="profile-title">Kenneth Bitun</h1>
-        <p className="profile-role">BS Computer Science student · Aspiring full-stack and AI engineer</p>
-        <p className="profile-bio">I study Computer Science at Our Lady of Fatima University and build software across web applications, data systems, and machine learning.</p>
-        <p className="profile-availability">Open to internship opportunities.</p>
-        <div className="profile-links"><a href="#projects">Selected projects</a><a href="#contact">Contact</a>{github && <a href={github.href} target="_blank" rel="noreferrer">GitHub</a>}{linkedin && <a href={linkedin.href} target="_blank" rel="noreferrer">LinkedIn</a>}</div>
+        <p className="profile-role">Full-stack development & machine learning</p>
+        <p className="profile-bio">I’m a Computer Science student at Our Lady of Fatima University. I build full-stack applications and work with data and machine learning.</p>
+        <p className="profile-availability">Open to internships</p>
+        <div className="profile-links">
+          <a className="folio-button" href="#projects">View projects <span aria-hidden="true">↓</span></a>
+          <a className="folio-text-link" href={`mailto:${emailAddress}`}>Email me</a>
+        </div>
       </div>
+      <aside className="profile-aside" aria-label="Professional links">
+        <Image className="profile-photo-image" src="/kenneth-portrait.png" alt="Portrait of Kenneth Bitun" width={1106} height={1422} loading="eager" fetchPriority="high" sizes="(max-width: 600px) 64px, 132px" />
+        <div className="profile-aside-links">
+          <a href={resumeUrl}>Résumé</a>
+          {contactLinks.filter(({ label }) => label === "GitHub" || label === "LinkedIn").map(({ label, href }) => <a key={label} href={href}>{label}</a>)}
+        </div>
+      </aside>
     </section>
   );
 }

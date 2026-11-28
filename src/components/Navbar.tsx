@@ -1,68 +1,70 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import KBot from "@/components/KBot";
 import { useTheme } from "@/components/ThemeProvider";
 
-const groups = [
-  { label: "Introduction", links: [{ id: "home", label: "Home" }, { id: "about", label: "About" }] },
-  { label: "Work", links: [{ id: "experience", label: "Experience" }, { id: "projects", label: "Projects" }] },
-  { label: "Practice", links: [{ id: "stack", label: "Stack" }, { id: "contact", label: "Contact" }] },
+const links = [
+  { id: "projects", label: "Projects" },
+  { id: "stack", label: "Stack" },
+  { id: "experience", label: "Experience" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [guideOpen, setGuideOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
+  const home = pathname === "/";
+  const sectionHref = (id: string) => `${home ? "" : "/"}#${id}`;
 
   useEffect(() => {
-    const sections = groups.flatMap((group) => group.links).map(({ id }) => document.getElementById(id)).filter((el): el is HTMLElement => Boolean(el));
+    const sections = ["home", ...links.map(({ id }) => id)].map((id) => document.getElementById(id)).filter((element): element is HTMLElement => Boolean(element));
     const update = () => {
-      const current = [...sections].reverse().find((section) => section.getBoundingClientRect().top <= 180);
+      const current = [...sections].reverse().find((section) => section.getBoundingClientRect().top <= 150);
       setActive(current?.id ?? "home");
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(scrollable > 0 ? Math.min(100, Math.round(window.scrollY / scrollable * 100)) : 0);
     };
-    let frame = 0;
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; update(); }); };
-    schedule();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", schedule); window.removeEventListener("resize", schedule); };
-  }, []);
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
+  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
-    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); toggle.current?.focus(); } };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [open]);
 
   const close = () => setOpen(false);
   return (
-    <>
-      <div className="reading-progress" role="progressbar" aria-label="Page reading progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}><span style={{ transform: `scaleX(${progress / 100})` }} /></div>
-      <aside className={open ? "sidebar sidebar-open" : "sidebar"}>
-        <div className="sidebar-top">
-          <a className="sidebar-name" href="#home" onClick={close}>Kenneth Bitun</a>
-          <div className="sidebar-controls">
-            <button className="sidebar-theme" type="button" onClick={toggleTheme} aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}>{theme === "light" ? "Dark" : "Light"}</button>
-            <button ref={toggle} type="button" className="sidebar-toggle" aria-expanded={open} aria-controls="sidebar-links" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen((value) => !value)}>{open ? "Close" : "Menu"}</button>
-          </div>
+    <header className="site-header">
+      <div className="nav-frame">
+        <a className="wordmark" href={sectionHref("home")} onClick={close}><span className="wordmark-mark" aria-hidden="true">KB</span><span>Kenneth Bitun</span></a>
+        <div className="nav-right">
+          <nav className="primary-nav" aria-label="Main navigation">
+            {links.map((link) => <a className="nav-link" href={sectionHref(link.id)} key={link.id} aria-current={home && active === link.id ? "location" : undefined}>{link.label}</a>)}
+          </nav>
+
+          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`} title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}><span aria-hidden="true">{theme === "light" ? "◐" : "◑"}</span><span className="theme-label">{theme === "light" ? "Dark" : "Light"}</span></button>
+          <button ref={toggle} type="button" className="menu-toggle" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close menu" : "Open menu"} onClick={() => { setGuideOpen(false); setOpen((value) => !value); }}>{open ? "Close" : "Menu"}</button>
+          <div className="guide-entry"><KBot open={guideOpen} onOpenChange={setGuideOpen} /></div>
         </div>
-        <nav id="sidebar-links" className="sidebar-links" aria-label="Page navigation">
-          {groups.map((group) => <div className="sidebar-group" key={group.label}>
-            <p>{group.label}</p>
-            {group.links.map((link) => <a href={"#" + link.id} key={link.id} aria-current={active === link.id ? "location" : undefined} onClick={close}>{link.label}</a>)}
-          </div>)}
+        <nav id="mobile-navigation" className="mobile-nav-panel" aria-label="Mobile navigation" hidden={!open}>
+          {links.map((link) => <a className="mobile-nav-link" href={sectionHref(link.id)} key={link.id} aria-current={home && active === link.id ? "location" : undefined} onClick={close}>{link.label}</a>)}
+          <button type="button" className="mobile-kbot-link" onClick={() => { setGuideOpen(true); close(); }}>Ask K-Bot</button>
         </nav>
-        <button className="assistant-note" type="button" onClick={() => { setGuideOpen(true); setOpen(false); }}><span>Ask about my projects</span><small>Local portfolio guide</small></button>
-        <div className="sidebar-social"><a href="https://github.com/Kendot1" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/kennethbitun/" target="_blank" rel="noreferrer">LinkedIn</a></div>
-      </aside>
-      <KBot open={guideOpen} onOpenChange={setGuideOpen} />
-    </>
+      </div>
+    </header>
   );
 }

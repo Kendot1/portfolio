@@ -1,33 +1,30 @@
-
 import EditorialHero from "@/components/EditorialHero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import SectionHeader from "@/components/SectionHeader";
-import { education } from "@/data/credentials";
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import { education, experience } from "@/data/credentials";
 
 export default function Home() {
   return (
-    <>
-      <div className="content-shell">
-        <EditorialHero />
-        <AnimateOnScroll className="content-section about-section" as="section">
-          <section id="about" className="about-content" aria-labelledby="about-title"><SectionHeader id="about-title" number="" title="About" aside="01" /><About /></section>
-        </AnimateOnScroll>
-        <AnimateOnScroll className="content-section" as="section">
-          <section id="experience" aria-labelledby="experience-title">
-            <SectionHeader id="experience-title" number="" title="Experience & education" aside="02" />
-            <div className="timeline-list"><article className="timeline-entry"><div className="timeline-title"><h3>Computer Science student</h3><span>2023–2027 (expected)</span></div><p className="timeline-place">{education.school}</p><p>Bachelor of Science in Computer Science.</p><p className="timeline-place">Consistent Dean’s Lister through 3rd year.</p></article></div>
-          </section>
-        </AnimateOnScroll>
-        <div className="projects-anchor"><AnimateOnScroll as="div"><Projects /></AnimateOnScroll></div>
-        <div className="stack-anchor"><AnimateOnScroll as="div"><Skills /></AnimateOnScroll></div>
-        <AnimateOnScroll className="content-section credential-area" as="section" aria-label="Certifications"><Certifications /></AnimateOnScroll>
-        <AnimateOnScroll className="content-section contact-anchor" as="section" aria-label="Contact"><Contact /></AnimateOnScroll>
-      </div>
-    </>
+    <div className="content-shell">
+      <EditorialHero />
+      <Projects />
+      <Skills />
+      <section id="experience" className="folio-section" aria-labelledby="experience-title">
+        <div className="section-heading-line"><span>03</span><h2 id="experience-title">Experience & education</h2></div>
+        <div className="timeline-list">
+          {experience.map((item) => <article className="timeline-entry" key={item.organization}><div className="timeline-title"><h3>{item.role}</h3>{item.role === "AI Intern" && <span>{item.period}</span>}</div><p className="timeline-place">{item.organization}</p><p>{item.role === "Lead Developer" ? "Developed the interface, forecasting workflows and data integration for the FOODCAST thesis." : item.description}</p></article>)}
+          <article id="education" className="timeline-entry"><div className="timeline-title"><h3>{education.school}</h3><span>{education.period}</span></div><p className="timeline-place">Bachelor of Science in Computer Science</p><p>Consistent Dean’s Lister through third year.</p></article>
+        </div>
+      </section>
+      <Certifications />
+      <section id="about" className="folio-section" aria-labelledby="about-title">
+        <div className="section-heading-line"><span>05</span><h2 id="about-title">About</h2></div>
+        <About />
+      </section>
+      <Contact />
+    </div>
   );
 }
